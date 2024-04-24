@@ -1,5 +1,5 @@
-# Self.py-Hangman
-Hangman created for Self.py course, Sigit 2024 (Untill when)
+# Next.py Chapter 1
+Chpater 1 created for Next.py course, Sigit 2024 (Untill when)
 ```                                                       
                                                   ......                                                 
                                              .:=++=----=++=:                                             
