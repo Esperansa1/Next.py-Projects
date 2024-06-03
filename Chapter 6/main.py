@@ -43,15 +43,28 @@ second = (
     128, 156, 134, 157, 136, 156, 136
 )
 
+# Create a new image with a white background
 new_img = Image.new('RGB', (300, 300), color='white') 
+
+
+# Draw the first shape
 draw = ImageDraw.Draw(new_img)
 x1, y1 = first[0], first[1]
 for x, y in zip(first[::2], first[1::2]):
+    """
+    This loop iterates over the coordinate points in the 'first' list and draws lines
+    between consecutive points using the 'line' method of the ImageDraw object
+    """
     draw.line((x, y, x1, y1), fill='black', width=3)
     x1, y1 = x, y
 
+# Draw the second shape
 x1, y1 = second[0], second[1]
 for x, y in zip(second[::2], second[1::2]):
+    """
+    This loop iterates over the coordinate points in the 'first' list and draws lines
+    between consecutive points using the 'line' method of the ImageDraw object
+    """
     draw.line((x, y, x1, y1), fill='black', width=3)
     x1, y1 = x, y
 
