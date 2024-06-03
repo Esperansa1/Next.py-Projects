@@ -1,35 +1,40 @@
-
 class UsernameContainsIllegalCharacter(Exception):
+    """Exception raised when a username contains an illegal character."""
     def __init__(self, username, letter):
         self.username = username
         self.message = f"Username '{username}' contains illegal character '{letter}'"
         super().__init__(self.message)
 
 class UsernameTooShort(Exception):
+    """Exception raised when a username is too short."""
     def __init__(self, username):
         self.username = username
         self.message = f"Username '{username}' is too short (minimum length is 3 characters)."
         super().__init__(self.message)
 
 class UsernameTooLong(Exception):
+    """Exception raised when a username is too long."""
     def __init__(self, username):
         self.username = username
         self.message = f"Username '{username}' is too long (maximum length is 16 characters)."
         super().__init__(self.message)
 
 class PasswordTooShort(Exception):
+    """Exception raised when a password is too short."""
     def __init__(self, password):
         self.password = password
         self.message = f"Password '{password}' is too short (minimum length is 8 characters)."
         super().__init__(self.message)
 
 class PasswordTooLong(Exception):
+    """Exception raised when a password is too long."""
     def __init__(self, password):
         self.password = password
         self.message = f"Password '{password}' is too long (maximum length is 40 characters)."
         super().__init__(self.message)
 
 class PasswordMissingCharacter(Exception):
+    """Base class for exceptions related to missing characters in a password."""
     def __init__(self, password):
         self.password = password
         self.message = f"Password '{password}' is missing a charachter "
@@ -39,24 +44,28 @@ class PasswordMissingCharacter(Exception):
        return self.message
 
 class PasswordMissingUppercase(PasswordMissingCharacter):
-   def __str__(self):
-       return super().__str__() + "(Uppercase)"
+    """Exception raised when a password is missing an uppercase character."""
+    def __str__(self):
+        return super().__str__() + "(Uppercase)"
 
 class PasswordMissingLowercase(PasswordMissingCharacter):
-   def __str__(self):
-       return super().__str__() + "(Lowercase)"
+    """Exception raised when a password is missing a lowercase character."""
+    def __str__(self):
+        return super().__str__() + "(Lowercase)"
 
 class PasswordMissingDigit(PasswordMissingCharacter):
-   def __str__(self):
-       return super().__str__() + "(Digit)"
+    """Exception raised when a password is missing a digit."""
+    def __str__(self):
+        return super().__str__() + "(Digit)"
 
 class PasswordMissingSpecial(PasswordMissingCharacter):
-   def __str__(self):
-       return super().__str__() + "(Special)"
+    """Exception raised when a password is missing a special character."""
+    def __str__(self):
+        return super().__str__() + "(Special)"
 
 
 def check_input(username, password):
-
+    """Checks if the given username and password meet the requirements and raises appropriate exceptions."""
     if len(username) < 3:
         raise UsernameTooShort(username)
 
@@ -108,8 +117,3 @@ def check_input(username, password):
         raise PasswordMissingSpecial(password)
 
     return True
-
-
-
-
-
