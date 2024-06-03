@@ -6,13 +6,12 @@ def check_id_valid(id_number):
     id_lst = list(str(id_number))
 
     id_lst = [int(id_num) * (2 if (i+1) % 2 == 0 else 1) for i, id_num in enumerate(id_lst)]
-
     check_sum = sum(sum_digits(num) for num in id_lst)
+    
     return check_sum % 10 == 0
 
 class IDIterator:
     def __init__(self, start_id):
-        self.id_ = start_id
         self.current_id = start_id
 
     def __iter__(self):
